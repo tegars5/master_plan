@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "133645146173",
+    "project_id": "manajemen-state",
+    "storage_bucket": "manajemen-state.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133645146173:android:57a7e0bd6cd888cd66b254",
+        "android_client_info": {
+          "package_name": "com.example.manajemen_state"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxkcicK21ypeSXj_gfLrSb6uYEOZ4Tl30"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
