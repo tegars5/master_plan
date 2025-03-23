@@ -36,7 +36,13 @@ class _PlanCreatorScreenState extends State<PlanCreatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Master Plans Tegar')),
+      appBar: AppBar(
+        title: const Text(
+          'Master Plans Tegar',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.purple,
+      ),
       body: Column(
         children: [_buildListCreator(), Expanded(child: _buildMasterPlans())],
       ),

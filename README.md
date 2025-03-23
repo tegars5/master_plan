@@ -152,4 +152,38 @@ yang berarti ada 3 tugas selesai dari total 5 tugas yang ada.
 
 - Menggunakan `InheritedNotifier` memungkinkan kita mengelola state secara lebih efisien.
 - Method `completedCount` dan `completenessMessage` berguna untuk menampilkan progress penyelesaian tugas.
-- Menampilkan hasil langkah 9 dalam GIF menunjukkan bahwa aplikasi berhasil mengupdate progress task secara otomatis.
+
+# Praktikum 3: State di Multiple Screens
+
+## 1. Penjelasan Gambar Diagram
+
+Gambar diagram menunjukkan bagaimana state dikelola dan berpindah antara dua layar dalam aplikasi Flutter.
+
+### **Diagram Kiri** (Sebelum Navigasi)
+
+- **MaterialApp** adalah root dari aplikasi Flutter.
+- **PlanProvider** digunakan sebagai penyedia state untuk mengelola data yang akan digunakan di berbagai layar.
+- **PlanCreatorScreen** adalah layar pertama tempat pengguna dapat membuat atau mengedit rencana.
+- **Column** digunakan untuk menyusun layout secara vertikal.
+- **TextField** digunakan untuk memasukkan input dari pengguna.
+- **Expanded** digunakan agar ListView mengisi sisa ruang yang tersedia.
+- **ListView** digunakan untuk menampilkan daftar item yang ada dalam sebuah rencana.
+
+### **Diagram Kanan** (Setelah Navigasi dengan `Navigator.push`)
+
+- Saat pengguna menavigasi ke layar **PlanScreen**, state dari **PlanProvider** tetap terjaga.
+- **Scaffold** digunakan sebagai struktur dasar UI layar baru.
+- **Column** masih digunakan untuk menyusun layout secara vertikal.
+- **Expanded** tetap digunakan untuk memastikan ListView mengisi ruang yang tersisa.
+- **SafeArea** digunakan untuk memastikan elemen UI tidak bertabrakan dengan area notifikasi atau sistem operasi.
+- **ListView** tetap digunakan untuk menampilkan daftar item.
+- **Text** digunakan untuk menampilkan informasi tambahan tentang rencana.
+
+### **Hasil yang Dibuat**
+
+1. Pengguna dapat menambahkan tugas baru ke dalam rencana.
+2. State dari daftar tugas tetap terjaga meskipun pengguna berpindah dari **PlanCreatorScreen** ke **PlanScreen**.
+3. Checkbox pada setiap tugas memungkinkan pengguna untuk menandai tugas sebagai selesai.
+4. Jika pengguna mengetik sesuatu di **TextField**, nilai tersebut tetap tersimpan saat navigasi dilakukan.
+
+![Hasil Praktikum 3](/assets/images/prak3.gif)

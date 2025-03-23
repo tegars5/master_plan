@@ -62,7 +62,8 @@ class _PlanScreenState extends State<PlanScreen> {
   Widget _buildAddTaskButton(BuildContext context) {
     ValueNotifier<List<Plan>> planNotifier = PlanProvider.of(context);
     return FloatingActionButton(
-      child: const Icon(Icons.add),
+      backgroundColor: Colors.purple,
+      child: const Icon(Icons.add, color: Colors.white),
       onPressed: () {
         List<Plan> plans = planNotifier.value;
         int planIndex = plans.indexWhere((p) => p.name == plan.name);
