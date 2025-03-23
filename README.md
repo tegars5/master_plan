@@ -100,3 +100,56 @@ void dispose() {
 - Menghindari **memory leak** dengan membuang `scrollController` dari memori saat widget dihancurkan.
 
 ---
+
+# Praktikum 2: Mengelola Data Layer dengan InheritedWidget dan InheritedNotifier
+
+## 1. Hasil Langkah 9 dalam GIF
+
+(GIF hasil praktikum ditampilkan di sini)
+
+## 2. Penjelasan InheritedWidget pada Langkah 1
+
+Pada langkah 1, kita membuat `PlanProvider` yang menggunakan `InheritedNotifier<ValueNotifier<Plan>>`.
+
+### Apa itu InheritedWidget?
+
+- `InheritedWidget` adalah widget khusus yang digunakan untuk menyediakan data ke widget turunannya tanpa perlu meneruskannya secara eksplisit melalui constructor.
+- Biasanya digunakan untuk state management global dalam aplikasi Flutter.
+
+### Mengapa Menggunakan InheritedNotifier?
+
+- `InheritedNotifier` adalah versi lebih efisien dari `InheritedWidget` karena hanya widget yang tergantung pada perubahan state yang akan di-rebuild.
+- `ValueNotifier<Plan>` digunakan agar ketika ada perubahan pada `Plan`, hanya widget yang membutuhkan data `Plan` yang akan diperbarui, bukan seluruh tree widget.
+
+## 3. Penjelasan Method di Langkah 3
+
+Pada langkah 3, kita menambahkan dua method dalam `Plan` model:
+
+```dart
+int get completedCount => tasks.where((task) => task.complete).length;
+
+String get completenessMessage =>
+  '$completedCount out of \${tasks.length} tasks';
+```
+
+### Penjelasan:
+
+- `completedCount`: Menghitung jumlah task yang sudah selesai (`complete == true`).
+- `completenessMessage`: Menampilkan progress dalam bentuk teks, misalnya:
+
+```csharp
+3 out of 5 tasks
+```
+
+yang berarti ada 3 tugas selesai dari total 5 tugas yang ada.
+
+### Mengapa Ini Diperlukan?
+
+- Untuk memberikan feedback kepada user tentang progress task mereka.
+- Mempermudah pembaruan UI ketika ada perubahan pada jumlah task yang selesai.
+
+## 4. Kesimpulan
+
+- Menggunakan `InheritedNotifier` memungkinkan kita mengelola state secara lebih efisien.
+- Method `completedCount` dan `completenessMessage` berguna untuk menampilkan progress penyelesaian tugas.
+- Menampilkan hasil langkah 9 dalam GIF menunjukkan bahwa aplikasi berhasil mengupdate progress task secara otomatis.
